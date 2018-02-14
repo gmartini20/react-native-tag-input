@@ -273,7 +273,6 @@ class TagInput<T> extends React.PureComponent<Props<T>, State> {
             {...this.props.scrollViewProps}
           >
             <View style={styles.tagInputContainer}>
-              {tags}
               <View style={[
                 styles.textInputContainer,
                 { width: this.state.inputWidth },
@@ -298,6 +297,7 @@ class TagInput<T> extends React.PureComponent<Props<T>, State> {
                   {...this.props.inputProps}
                 />
               </View>
+              {tags}
             </View>
           </ScrollView>
         </View>
