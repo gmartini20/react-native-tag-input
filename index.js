@@ -297,7 +297,9 @@ class TagInput<T> extends React.PureComponent<Props<T>, State> {
                   {...this.props.inputProps}
                 />
               </View>
-              {tags}
+              <View>
+                {tags}
+              </View>
             </View>
           </ScrollView>
         </View>
