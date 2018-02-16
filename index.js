@@ -262,7 +262,7 @@ class TagInput<T> extends React.PureComponent<Props<T>, State> {
         style={styles.container}
         onLayout={this.measureWrapper}
       >
-        <View style={[styles.wrapper, { height: this.state.wrapperHeight }]}>
+        <View style={[styles.wrapper, { height: 'auto' }]}>
           <ScrollView
             ref={this.scrollViewRef}
             style={styles.tagInputContainerScroll}
@@ -280,6 +280,7 @@ class TagInput<T> extends React.PureComponent<Props<T>, State> {
                 <TextInput
                   ref={this.tagInputRef}
                   blurOnSubmit={false}
+                  multiline={true}
                   onKeyPress={this.onKeyPress}
                   value={this.props.text}
                   style={[styles.textInput, {
@@ -297,9 +298,9 @@ class TagInput<T> extends React.PureComponent<Props<T>, State> {
                   {...this.props.inputProps}
                 />
               </View>
-              <View>
-                {tags}
-              </View>
+            </View>
+            <View style={styles.tagInputContainer}>
+              {tags}
             </View>
           </ScrollView>
         </View>
@@ -429,6 +430,7 @@ class Tag extends React.PureComponent<TagProps> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    height: 'auto',
   },
   wrapper: {
     flex: 1,
@@ -444,16 +446,15 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     flexWrap: 'wrap',
+    minHeight: 50
   },
   textInput: {
-    height: 36,
     fontSize: 16,
-    flex: .6,
     marginBottom: 6,
     padding: 0,
   },
   textInputContainer: {
-    height: 36,
+    height: 40,
   },
   tag: {
     justifyContent: 'center',
